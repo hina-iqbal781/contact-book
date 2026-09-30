@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Contact Book</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav {
+            background-color: #333;
+            padding: 15px 30px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            /* STICKY NAVBAR */
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-left {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        .logout-btn {
+            background-color: #dc3545;
+            color: white;
+            padding: 8px 15px;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+
+        .logout-btn:hover {
+            background-color: #c82333;
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav>
+
+        <div class="nav-left">
+
+            <a href="{% url 'listing' %}">
+                Home
+            </a>
+
+            {% if user.is_authenticated %}
+
+                <a href="{% url 'contact_list' %}">
+                    Add Contact
+                </a>
+
+            {% else %}
+
+                <a href="{% url 'login' %}">
+                    Login
+                </a>
+
+                <a href="{% url 'signup' %}">
+                    Signup
+                </a>
+
+            {% endif %}
+
+        </div>
+
+
+        {% if user.is_authenticated %}
+
+            <div class="nav-right">
+
+                <a href="{% url 'logout' %}" class="logout-btn">
+                    Logout
+                </a>
+
+            </div>
+
+        {% endif %}
+
+    </nav>
+
+
+    {% block content %}
+    {% endblock %}
+
+</body>
+</html>
+

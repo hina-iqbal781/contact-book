@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sign Up</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 30px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 30px;
+        }
+
+        .signup-container {
+            background-color: white;
+            max-width: 400px;
+            margin: 30px auto;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .signup-container label {
+            display: block;
+            margin-bottom: 6px;
+            color: #333;
+            font-weight: 500;
+        }
+
+        .signup-container input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 18px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            box-sizing: border-box;
+            font-size: 14px;
+        }
+
+        .signup-btn {
+            width: 100%;
+            padding: 12px;
+            background-color: #333;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .signup-btn:hover {
+            background-color: #555;
+        }
+
+        .login-link {
+            text-align: center;
+            margin-top: 20px;
+            color: #555;
+        }
+
+        .login-link a {
+            color: #333;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .login-link a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Create Account</h1>
+
+    {% if messages %}
+    {% for message in messages %}
+        <p style="
+            text-align: center;
+            color: #333;
+            background-color: white;
+            padding: 10px;
+            border-radius: 6px;
+            max-width: 400px;
+            margin: 0 auto 15px;
+        ">
+            {{ message }}
+        </p>
+    {% endfor %}
+{% endif %}
+
+    <div class="signup-container">
+
+        <form method="POST">
+            {% csrf_token %}
+
+            <label for="username">
+                Username
+            </label>
+
+            <input
+                type="text"
+                id="username"
+                name="username"
+                placeholder="Enter username"
+                required
+            >
+
+            <label for="password">
+                Password
+            </label>
+
+            <input
+                type="password"
+                id="password"
+                name="password"
+                placeholder="Enter password"
+                required
+            >
+
+            <button type="submit" class="signup-btn">
+                Sign Up
+            </button>
+
+        </form>
+
+        <div class="login-link">
+    Already have an account?
+            <a href="/">Login</a> will be available soon.
+</div>
+
+    </div>
+
+</body>
+</html>

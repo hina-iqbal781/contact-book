@@ -1,0 +1,82 @@
+{% extends 'wrapper.html' %}
+
+{% block content %}
+    <style>
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        .detail-card {
+            background-color: white;
+            max-width: 500px;
+            margin: 30px auto;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .detail-card h2 {
+            margin-top: 0;
+            color: #333;
+            text-align: center;
+        }
+
+        .detail-card p {
+            color: #555;
+            font-size: 17px;
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .back-btn {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            margin-top: 20px;
+            background-color: #333;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 6px;
+            box-sizing: border-box;
+        }
+
+        .back-btn:hover {
+            background-color: #555;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Contact Details</h1>
+
+    <div class="detail-card">
+
+<p>
+            <strong>Name:</strong>
+            {{ contact.name }}
+        </p>
+        <p>
+            <strong>Phone:</strong>
+            {{ contact.phone }}
+        </p>
+
+        <p>
+            <strong>Email:</strong>
+            {{ contact.email }}
+        </p>
+
+        <p>
+            <strong>Address:</strong>
+            {{ contact.address }}
+        </p>
+
+        <a href="{% url 'listing' %}" class="back-btn">
+            Back to Contact List
+        </a>
+
+    </div>
+    {% endblock %}

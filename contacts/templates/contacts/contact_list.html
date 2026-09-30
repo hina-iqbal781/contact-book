@@ -1,0 +1,115 @@
+{% extends 'wrapper.html' %}
+
+{% block content %}
+
+
+       <style>
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        .form-container {
+            background-color: white;
+            max-width: 500px;
+            margin: 30px auto;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        form p {
+            margin-bottom: 15px;
+        }
+
+        form input,
+        form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            box-sizing: border-box;
+        }
+
+        form textarea {
+            height: 100px;
+        }
+
+        form button {
+            width: 100%;
+            padding: 12px;
+            background-color: #333;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        form button:hover {
+            background-color: #555;
+        }
+
+          .back-container {
+    max-width: 500px;
+    margin: 15px auto 0;
+}
+
+.back-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 20px;
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.back-btn:hover {
+    background-color: #555;
+}
+
+
+    </style>
+</head>
+
+  <body>
+    <h1>Add New Contact</h1>
+    <!-- Form Box -->
+    <div class="form-container">
+      <form method="POST">
+        {% csrf_token %}
+
+        {{ form.as_p }}
+        <div style=" display: flex; gap: 10px; justify-content: flex-end;">
+
+    <button type="submit" style="width: auto;">
+        Add Contact
+    </button>
+
+    <a href="{% url 'listing' %}"
+       style="
+       display: inline-flex;
+       align-items: center;
+       justify-content: center;
+       padding: 12px 20px;
+       background-color: #333;
+       color: white;
+       text-decoration: none;
+       border-radius: 6px;
+       font-size: 16px;
+       box-sizing: border-box;
+       ">
+        Back
+    </a>
+
+</div>
+      </form>
+    </div>
+{% endblock %}

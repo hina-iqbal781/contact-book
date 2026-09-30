@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit Contact</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 30px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        form {
+            background-color: white;
+            max-width: 500px;
+            margin: 30px auto;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        form p {
+            margin-bottom: 15px;
+        }
+
+        form input,
+        form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            box-sizing: border-box;
+        }
+
+        form textarea {
+            height: 100px;
+        }
+
+        form button {
+            width: auto;
+            padding: 12px;
+            background-color: #333;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        form button:hover {
+            background-color: #555;
+        }
+
+        .back-btn {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            background-color: #777;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 6px;
+            box-sizing: border-box;
+        }
+
+        .back-btn:hover {
+            background-color: #555;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Edit Contact</h1>
+
+    <form method="POST">
+        {% csrf_token %}
+
+        {{ form.as_p }}
+
+        <div style="display: flex; gap: 10px; justify-content: flex-end;">
+
+            <button type="submit" style="width: auto;">
+                Update Contact
+            </button>
+
+            <button href="{% url 'listing' %}" class="cancel-btn">
+                Cancel
+            </button>
+
+        </div>
+    </form>
+
+</body>
+</html>
