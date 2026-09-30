@@ -1,15 +1,8 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Edit Contact</title>
+{% extends 'wrapper.html' %}
+
+{% block content %}
 
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f2f2f2;
-            margin: 0;
-            padding: 30px;
-        }
 
         h1 {
             text-align: center;
@@ -92,12 +85,10 @@
                 Update Contact
             </button>
 
-            <button href="{% url 'listing' %}" class="cancel-btn">
+            <button type="button" onclick="window.location.href='{% url 'listing' %}'" class="cancel-btn">
                 Cancel
             </button>
 
         </div>
     </form>
-
-</body>
-</html>
+{% endblock %}
